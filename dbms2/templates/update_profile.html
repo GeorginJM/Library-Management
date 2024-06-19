@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Profile</title>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, p, ul, li, form, input, button {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply a background color to the body */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Add a container to center content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style headings */
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        /* Style links */
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        /* Style buttons */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style form input and button */
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Add a back button */
+        .back-button {
+            background-color: #ccc;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        /* Add a success message */
+        .success-message {
+            color: #008000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style> 
+    
+</head>
+<body>
+
+<div class="container">
+    <h3>Update Profile</h3>
+    <form id="update-form" action="/update/{{ data.id }}" method="POST">
+        <input type="hidden" id="dataId" value="{{ data.id }}">
+        <label>Book Name</label>
+        <input type="text" name="book_name" value="{{ data.book_name }}">
+        <label>Author Name</label>
+        <input type="text" name="author_name" value="{{ data.author_name }}">
+        <label class="checkbox-label">Status</label>
+        <input type="checkbox" name="status" {% if data.status %}checked{% endif %}>
+        <button type="submit">Update</button>
+    </form>
+    <a class="back-button" href="/">Back</a>
+</div>
+<script>
+    function updateStatus() {
+        // Get the checkbox element
+        var checkbox = document.getElementById("statusCheckbox");
+
+        // Get the status cell in the index table using the first column of the current row
+        var currentRow = checkbox.closest("tr");
+        var statusCell = currentRow.querySelector("td:nth-child(4)");
+
+        // Update the status cell text based on the checkbox state
+        statusCell.innerHTML = checkbox.checked ? "Borrowed" : "Not Borrowed";
+    }
+</script>
+</body>
+</html>

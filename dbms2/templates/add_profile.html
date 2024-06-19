@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Profile</title>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, h3, p, ul, li, form, input, button {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Apply a background color to the body */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Add a container to center content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style headings */
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        /* Style links */
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        /* Style buttons */
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style form input and button */
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Add a back button */
+        .back-button {
+            background-color: #ccc;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        /* Add a success message */
+        .success-message {
+            color: #008000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Add Profile</h3> 
+        <form id="add-form" action="/add" method="POST">
+            <label>Book Name</label>
+            <input type="text" name="book_name" placeholder="book name...">
+            <label>Author Name</label>
+            <input type="text" name="author_name" placeholder="author name...">
+            <label class="checkbox-label">Status</label>
+            <input type="checkbox" name="status">
+            <button type="submit">Add</button>
+        </form>
+        <a class="back-button" href="/">Back</a>
+        
+    </div>
+</body>
+</html>
